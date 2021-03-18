@@ -1,0 +1,27 @@
+<div *ngIf="product">
+    <h1 class="mb-3">Edit  prodcut</h1>
+    <img src={{product.image}} class="card-img-top" alt="..." style="max-width: 300px; border-radius: 50%;">
+    <form #form=ngForm class="fm m-5" #f="ngForm" (ngSubmit)="editProduct(form.value)" style="max-width: 500px;" class="mx-auto">
+        <div class="mb-3">
+          <label for="name" class="form-label">name</label>
+          <input type="text" [(ngModel)]="product.name" class="form-control" name='name' id="name">
+        </div>
+        
+        <div class="mb-3">
+            <label for="price" class="form-label" >Price</label>
+            <input type="text" ngModel #price="ngModel" [(ngModel)]="product.price" name='price' class="form-control" id="price" pattern="^[0-9]*$">
+            <div class="alert alert-danger" *ngIf="!price.valid">Please Enter a valid value</div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="description" class="form-label" >Enter description</label>
+            <textarea type="textarea" [(ngModel)]="product.description" name='description' class="form-control" id="description"></textarea>
+        </div>
+        
+        
+        <div class="alert alert-danger" *ngIf="f.touched && !f.valid">Please Enter all valid Details</div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Edit</button>
+        
+    </form>
+</div>
+

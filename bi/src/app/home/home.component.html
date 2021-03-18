@@ -1,0 +1,38 @@
+<div  *ngIf="user">
+
+    
+<img src={{user.profile}} class="mb-3" style="max-width: 300px; border-radius: 50%;">
+
+<table *ngIf="user" class="mx-auto">
+    <tr>
+        <td>Name</td>
+        <td >{{user.name}}</td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td >{{user.mobile}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{user.email}}</td>
+    </tr>
+    <tr>
+        <td>Dob</td>
+        <td>{{user.dob}}</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>{{user.age}}</td>
+    </tr>
+    <tr>
+        <td>Last Seen</td>
+        <td>{{user.lastSeen}}</td>
+    </tr>
+</table>
+
+<a routerLink="/products" class="btn btn-primary m-2">View Products</a>
+<a routerLink="/add_product" class="btn btn-primary m-2">add new Product</a>
+<button type="button" (click)="logout()" class="btn btn-primary m-2">Logout </button>
+
+
+</div>

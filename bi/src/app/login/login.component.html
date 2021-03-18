@@ -1,0 +1,20 @@
+<div  style="max-width:500px;" class="text-center mx-auto border p-4">
+<h2 >Login</h2>
+<form >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label" >Email address</label>
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" [(ngModel)]="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label" name="password">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password">
+    </div>
+    <button type="submit" (click)='login()' class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+<div>
+  <p>You Can Register here</p>
+  <a routerLink="/register" class="btn btn-primary m-2">Register</a>
+</div>

@@ -1,0 +1,46 @@
+<h1 class="mb-3">Register</h1>
+<form class="fm m-5" #f="ngForm" #form="ngForm" (ngSubmit)="Register()">
+    <div class="mb-3">
+      <label for="name" class="form-label">name</label>
+      <input type="text" [(ngModel)]="user.name" class="form-control" name='name' id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" ngModel #email="ngModel" [(ngModel)]="user.email" class="form-control" name='email' id="email" aria-describedby="emailHelp" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,}$" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Please Enter a valid email</div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label" >Password</label>
+        <input type="password" [(ngModel)]="user.password" name='password' class="form-control" id="password" required>
+    </div>
+    <div class="mb-3">
+        <label for="mobile" class="form-label" >mobile no</label>
+        <input type="text" ngModel #mobile="ngModel" [(ngModel)]="user.mobile" name='mobile' class="form-control" id="mobile" pattern="^[0-9]*$" required>
+        <div class="alert alert-danger" *ngIf="mobile.touched && !mobile.valid">Please Enter a valid Mobile Number</div>
+    </div>
+    <div class="mb-3">
+      <label for="dob" class="form-label" >Date of Birth</label>
+      <input type="date" (change)="setAge()" ngModel #dob="ngModel" [(ngModel)]="user.dob" name='dob' class="form-control" id="dob" [max]="maxDate" required>
+      <div class="alert alert-danger" *ngIf="dob.touched && !dob.valid">Please Enter a valid DOB</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="text" [(ngModel)]="user.age" class="form-control" name='age' id="age" disabled>
+    </div>
+    
+
+    <div class="mb-3">
+        <label for="profile" class="form-label" >Select Profile photo</label>
+        <input type="file"  (change)="onFileSelect($event)" [(ngModel)]="user.profile" name='profile' class="form-control" id="profile" required>
+    </div>
+    
+    <div class="alert alert-danger" *ngIf="f.touched && !f.valid">Please Enter all valid Details</div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    
+</form>
+<div>
+  <p>You Can Login here</p>
+  <a routerLink="/login" class="btn btn-primary m-2">Login</a>
+</div>

@@ -1,0 +1,16 @@
+<h1 class="text-center mb-5">All Products</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
+
+    <div class="col" *ngFor=" let product of products$ | async">
+      <div class="card h-100">
+        <img src={{product.image}} class="card-img-top" alt="..." style="max-height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">Price:{{product.price}}</p>
+          <button type="button" class="btn btn-primary w-100 mb-3" [routerLink]="['/edit_product',product._id]">Edit Product</button>
+          <button type="button" class="btn btn-primary w-100 mb-3"  (click)="DeleteProduct(product._id)">Delete Product</button>
+        </div>
+      </div>
+    </div>
+    
+</div>
